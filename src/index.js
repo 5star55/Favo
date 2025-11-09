@@ -4,7 +4,7 @@ import './css/index.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
-import { MovieProvider, useMovieContext } from './Contexts/MovieContext';
+import { MovieProvider} from './Contexts/MovieContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
