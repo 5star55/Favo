@@ -1,0 +1,30 @@
+.rating-badge {
+  position: relative;
+  border-radius: 50%;
+  background-color: #081c22;
+  flex-shrink: 0;
+}
+
+.rating-badge svg {
+  display: block;
+}
+
+.rating-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.15);
+}
+
+.rating-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+}
+
+.rating-value sup {
+  font-size: 0.45em;
+  margin-top: -0.4em;
+}
