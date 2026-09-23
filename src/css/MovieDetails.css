@@ -445,13 +445,22 @@
 /* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {
+  /* minmax(0, 1fr), not 1fr: a plain 1fr column won't shrink below its content,
+     so the 15-card cast row would push the page ~2300px wide */
   .details-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
   }
 
   .details-sidebar {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+
+  .details-sidebar .side-block:first-child,
+  .side-links {
+    grid-column: 1 / -1;
   }
 }
 
@@ -465,6 +474,10 @@
     background: linear-gradient(to bottom, rgba(10, 10, 20, 0.7), rgba(10, 10, 20, 0.98) 40%);
   }
 
+  .back-btn {
+    margin-bottom: 1rem;
+  }
+
   .details-hero-content {
     flex-direction: column;
     align-items: center;
@@ -475,6 +488,12 @@
     width: 200px;
   }
 
+  /* In a centered column a flex item sizes to its content; force full width
+     so long text wraps instead of running off both edges */
+  .details-main {
+    width: 100%;
+  }
+
   .details-main h1 {
     font-size: 1.8rem;
     text-align: center;
@@ -482,11 +501,92 @@
 
   .details-facts {
     justify-content: center;
+    text-align: center;
   }
 
-  .details-body,
+  .details-actions {
+    justify-content: center;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  .details-score {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .details-tagline {
+    text-align: center;
+  }
+
+  .details-overview {
+    font-size: 0.95rem;
+  }
+
+  .details-crew {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .details-body {
+    padding: 2rem 1rem;
+  }
+
   .details-related {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0 1rem 2.5rem;
+  }
+
+  .details-body h2,
+  .details-related h2 {
+    font-size: 1.3rem;
+  }
+
+  .cast-card {
+    flex-basis: 120px;
+  }
+
+  .review {
+    padding: 1rem;
+  }
+
+  .trailer-close {
+    top: -2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-poster {
+    width: 170px;
+  }
+
+  .details-main h1 {
+    font-size: 1.55rem;
+  }
+
+  .details-facts {
+    font-size: 0.9rem;
+  }
+
+  /* Stack the action buttons into an even two-column block */
+  .details-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .details-actions .details-btn {
+    justify-content: center;
+    text-align: center;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .details-score {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+  }
+
+  /* An odd button out spans the full row */
+  .details-actions .details-btn:last-child:nth-child(even) {
+    grid-column: 1 / -1;
   }
 }

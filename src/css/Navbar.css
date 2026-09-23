@@ -72,6 +72,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  white-space: nowrap;
   padding: 0.45rem 1.1rem;
   border-radius: 999px;
   font-size: 0.95rem;
@@ -125,7 +126,8 @@
 }
 
 @media (max-width: 560px) {
-  .brand-text {
+  /* Only hide the wordmark in the navbar; the footer has room for it */
+  .navbar .brand-text {
     display: none;
   }
 
@@ -140,5 +142,25 @@
 
   .nav-link .nav-icon {
     display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .navbar .brand-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .navbar-links {
+    padding: 0.2rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.78rem;
   }
 }

@@ -186,6 +186,29 @@ kbd {
 
 @media (max-width: 900px) {
   .free-details-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Let the player run edge to edge on phones */
+  .player-wrap {
+    margin: 0 -1rem;
+    width: calc(100% + 2rem);
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .free-details .back-btn {
+    margin-bottom: 0.75rem;
+  }
+
+  /* The shared fact row is centered on the movie page; keep it left-aligned here */
+  .free-main .details-facts {
+    justify-content: flex-start;
+    text-align: left;
   }
 }
